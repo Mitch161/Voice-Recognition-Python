@@ -275,35 +275,42 @@ class LiveAudio(tk.Frame):
         label = ttk.Label(self, text="Commands List:\n1) OPEN\n2) CLOSE\n3) EXIT\n4) USE\n5) SEARCH\n6) PLAY\n7) HISTORY\n8) PROFILE\n9) LOGOUT", font=TOP_FONT, background='white', foreground='black')
         label.grid(row=0, column=2)
 
-#Class that displays the Top Bar on AudioGui
+#Class that displays the Top Bar on AudioGui - updated top and side frames to make more appealing and user friendly
 class TopFrame(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        tk.Frame.configure(self, background='#3e4143')
+        tk.Frame.configure(self, background='#6200EE')
 
         firstname = controller.get_firstname()
         surname = controller.get_surname()
 
-        label = ttk.Label(self, text=firstname,font=TOP_FONT, background='#3e4143', foreground='white')
+        label = ttk.Label(self, text=firstname,font=TOP_FONT, background='#000000', foreground='white')
         label.grid(row=1,column=1)
-        label2 = ttk.Label(self, text=" ",font=TOP_FONT, background='#3e4143', foreground='white')
+        label2 = ttk.Label(self, text=" ",font=TOP_FONT, background='#000000', foreground='white')
         label2.grid(row=1,column=2)
-        label3 = ttk.Label(self, text=surname,font=TOP_FONT, background='#3e4143', foreground='white')
+        label3 = ttk.Label(self, text=surname,font=TOP_FONT, background='#000000', foreground='white')
         label3.grid(row=1,column=3)
+
+        spacelabel = tkk.Label(self, text="           ", font=TOP_FONT, background='#000000', foreground='white')
+        spacelabel.grid(row=1,column=5)
+        mainlabel = tkk.Label(self, text="Iris", font=TOP_FONT, background='#000000', foreground='white')
+        mainlabel.grid(row=1,column=6)
+
+
 
 #Class that displays the left hand side bar with button on Audio Gui
 class WestFrame(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        tk.Frame.configure(self, background='#3e4143')
+        tk.Frame.configure(self, background='#6200EE')
 
-        p_button = tk.Button(self, text="Profile", font=LEFT_FONT, width="6", height="1", highlightthickness=0, highlightbackground='#3e4143', background='#3e4143', foreground='white', relief='flat'
+        p_button = tk.Button(self, text="Profile", font=LEFT_FONT, width="6", height="1", highlightthickness=0, highlightbackground='#3e4143', background='#000000', foreground='white', relief='flat'
                              , command=lambda: controller.show_frame(ProfileFrame))
         p_button.grid(row=3, column=0, pady=10)
-        s_button = tk.Button(self, text="Settings", font=LEFT_FONT, width="6", height="1", highlightthickness=0, highlightbackground='#3e4143', background='#3e4143', foreground='white', relief='flat'
+        s_button = tk.Button(self, text="Settings", font=LEFT_FONT, width="6", height="1", highlightthickness=0, highlightbackground='#3e4143', background='#000000', foreground='white', relief='flat'
                              , command = lambda: controller.show_frame(OptionsFrame))
         s_button.grid(row=5, column=0, pady=10)
-        t_button = tk.Button(self, text="Record", font=LEFT_FONT, width="6", height="1", highlightthickness=0, highlightbackground='#3e4143', background='#3e4143', foreground='white', relief='flat'
+        t_button = tk.Button(self, text="Record", font=LEFT_FONT, width="6", height="1", highlightthickness=0, highlightbackground='#3e4143', background='#000000', foreground='white', relief='flat'
                              , command = lambda: controller.show_frame(LiveAudio))
         t_button.grid(row=1, column=0, pady=10)
 
